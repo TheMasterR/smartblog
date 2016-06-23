@@ -1,0 +1,30 @@
+ai uitat sa pui meniul "hamburger" pe mobile http://screencast.com/t/w9dULY5EK
+
+- daca folosesti metoda asta de hover, trebuie sa te asiguri ca are sufucient spatiu in stanga, ca altfel sare pe randul urmator si pierzi hover-ul http://screencast.com/t/BWDYDQqkeFb, 
+	recomand media query, daca size-ul ii mai mic decat width-ul containerului de "share options" fa-l sa apara pe mai multe randuri iconitele, sau sa se mareasca containerul articolului
+	
+- http://screencast.com/t/Zy2lda8TvblE - la responsive: fa sa se mareasca containerul, si daca size-ul ii asa mic, arata mai bine daca textul intra sub imagina, sa nu fie float-ate.
+
+
+
+// 1. De finalizat paginile article (detaliile despre un articol cu comments) si new-article (adaugarea unui nou articol)
+
+// 2. Creati o pagina noua register (asemanatoare cu login) pe care sa aveti un formular cu
+
+Name: <input>
+Email: <input>
+Password: <input>
+Confirm password: <input>
+<buton register>
+
+
+// 3. Adaugati link in header spre pagina de register
+
+// 4. Toate linkurile sa fie functionale spre paginile existente
+
+// 5. Sidebar-ul sa fie ascuns pe paginile de login, register si not found
+// 5.1Redenumiti variabila $OUTPUT in $TEMPLATE_VARS
+
+Astea pe luni 16 mai
+
+// 6. https://www.codecademy.com/learn/php sa faceti cursurile macar pana la UNIT 9 pana la urmatorul curs de PHP (26 mai)

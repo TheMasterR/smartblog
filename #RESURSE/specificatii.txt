@@ -1,0 +1,41 @@
+General:
+
+    Latimea contentului: 1170 pixeli
+    Fundal: #f5f5f5
+    Text: #555, Open Sans, 14 pixeli
+    Nuanta rosu: #ff0000
+    Spatierile intre paneluri sunt de 40 pixeli
+
+
+Header:
+
+    fundal: alb
+    inaltime: 97 pixeli
+    dunga jos: 1 pixel (culoare: #e8e8e8)
+
+
+Paneluri:
+
+    Fundal: alb
+    Contur: 1 pixel (culoare: #f1f1f1)
+    Text titlu: Roboto, 32 pixeli, #333, grosime 900
+
+	
+Footer:
+
+    Inaltime: 62 pixeli
+    Fundal: #101010
+    Culoare Text: #555
+    Culoare Link: #b2b2b2 
+
+
+Resurse:
+
+    Font Open Sans: https://www.google.com/fonts/specimen/Open+Sans
+    Font Roboto: https://www.google.com/fonts/specimen/Roboto
+
+	
+Sugestii:
+
+    Luati imagini dragute de pe net sa puneti in articole
+    Pentru dummy text folositi http://www.lipsum.com/feed/html
