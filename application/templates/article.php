@@ -47,33 +47,35 @@
     <h4><?= $TEMPLATE_VARS['nrOfComments'] ?> Comments</h4>
 
     <!--COMMENT CONTAINER-->
-    <?php foreach($TEMPLATE_VARS['comments'] as $comment){ ?>
-    <div class="comment-container">
-        <img src="./public/img/thumb.png" alt="Profile iamge">
-        <div class="comment-right">
-            <div class="top">
-                <a href="/profile/user_1"><?= $comment['username']; ?></a>
-                <div class="comment-date"><?= $comment['date_published']; ?></div>
-                <span class="clear"></span>
-            </div>
-            <div class="comment">
-               <?= $comment['comment_content']; ?>
-            </div>
-        </div>
-        <span class="clear"></span>
+    <div id="comments-container">
+
+
     </div>
-    <?php } ?>
     <!--END COMMENT CONTAINER-->
 
 <!--ADD NEW COMMENT FORM-->
 <?php
     if ($TEMPLATE_VARS['userIsLogged']) {
 ?>
-    <form action="" class="new-comment" method="post">
-        <textarea value=""
-            class="add-comment" name="add-comment" id="add-comment" placeholder="Enter your comment..."></textarea>
-    <input type="submit" value="Submit" />
+     <form id="add-comment" class="new-comment">
+        <input type="hidden" name="authorName" value="<?= $TEMPLATE_VARS['user']->name ?>"/>
+        <input type="hidden" name="authorThumbSrc" value="./public/img/thumb.png"/>
+        <input type="hidden" name="authorPage" value="/public/1"/>
+        <input type="hidden" name="articleId" value="<?= $TEMPLATE_VARS['article']->id ?>"/>
+
+        <textarea name="body" class="add-comment"></textarea>
+
+        <input type="submit" value="Add comment"/>
     </form>
+
+    <!--<div id="test-propagation">-->
+    <!--    <div>-->
+    <!--        <p>-->
+    <!--            <a href="#" id="my-anchor">Click me!</a>-->
+    <!--        </p>-->
+    <!--    </div>-->
+    <!--</div>-->
+
 <?php
    } else {
         echo '<br><br><p>You have to be <a href="/index.php?page=auth&action=login&aid='.$TEMPLATE_VARS['article']->id.'"><b>logged in</b></a> to place a comment.</p>';

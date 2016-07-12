@@ -238,7 +238,7 @@ form input[type=motto]{
 
 /*FIX FOR CENTERING OF THE INPUT BUTTON*/
 
-form input#image-upload, input#profilePicture, input#coverPicture {
+form input#image-upload, input#profilePicture, input#coverPicture, #filesToUpload {
     padding-top: 7px;
 }
 
@@ -807,4 +807,87 @@ footer a:hover {
 
 .article-content {
     text-align: justify;
+}
+
+.delete-comment, edit-comment {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+.delete-comment input[type=submit],
+.edit-comment input[type=submit]{
+    margin: 0;
+    display: inline;
+    height: auto;
+    float: right;
+}
+.comment-date {
+    margin-left: 15px;
+}
+.top form {
+    padding: 0;
+    margin: 0;
+    display: inline;
+    height: auto;
+}
+
+
+/*SLIDER*/
+
+#slider {
+    width: 758px;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+#slider .slides {
+    display: block;
+    width: 99999px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+#slider .slide {
+    float: left;
+    list-style-type: none;
+    width: 758px;
+    height: 400px;
+}
+#slider .slide img {
+    width: 100%;
+}
+
+#slider-previous, #slider-next {
+    width: 120px;
+    height: 400px;
+    background-color: grey;
+    opacity: 0.4;
+    opacity: 10%;
+    position: absolute;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    padding-top: 140px;
+    display: none;
+}
+#slider-next {
+    margin-left: 638px;
+}
+#slider-pause-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 4px;
+    background-color: grey;
+    color: white;
+    opacity: 0.6;
+    margin-top: 150px;
+    margin-left: 325px;
+    padding-top: 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    display: none;
 }

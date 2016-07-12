@@ -2,14 +2,41 @@
     <head>
         <title>Testing JS</title>
         <!--<script type="text/javascript" src="/public/js/test.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <style type="text/css">
+            #gallery {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 400px;
+                width: 600px;
+                overflow: hidden;
+                margin: auto;
+                border: 1px solid #f00;
+            }
+            .image {
+                display:none;
+            }
+            .visible {
+                display:block;
+                min-width:600px;
+                height:400px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
     </head>
 
     <body>
+        <div id="gallery"></div>
         <script>
             // alert('This is annoyng.');
             // console.log('hi from javascript');
             // document.write('Testing...');
         </script>
-        <script type="text/javascript" src="/public/js/comments.js"></script>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/gallery.js"></script>
+
     </body>
 </html>

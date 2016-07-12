@@ -8,6 +8,7 @@
         <link type="image/ico" rel="icon" href="public/img/favicon.ico">
         <link type="text/css" rel="stylesheet" href="public/css/style.css">
         <script type="text/javascript" src="public/js/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     </head>
     <body>
         <?php require_once 'header.php'; ?>

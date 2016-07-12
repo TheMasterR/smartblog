@@ -15,7 +15,8 @@
                     <a href="/?page=myAccount">MY ACCOUNT</a>
                     <span class="dropdown">
                         <a href="/?page=article&action=add">New article</a>
-                        <a href="/?page=article&action=myArticles">My Articles</a>
+                        <a href="/?page=upload">Upload</a>
+                        <a href="/?page=article&action=myArticles">myArticles</a>
                         <a href="/phpmyadmin/" target="_BLANK">PhPMyAdmin</a>
                         <a href="/?page=auth&action=doLogout">Logout</a>
                     </span>

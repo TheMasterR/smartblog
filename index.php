@@ -24,13 +24,19 @@ if ($controller != null && method_exists($controller, $actionName)){
     $controller = new NotFoundController($params);
 }
 
-$TEMPLATE_VARS = array(
-    'pageNotFound'  => false,
-    'login'         => false,
-    'register'      => false,
-    'userIsLogged'  => User::isLogged(),
-    'loggedUser'    => User::getLogged()
-);
+// if we have ajax, we just return the output, otherwise we do all the things
+if ($controllerName == 'ajax') {
+    $controller->getOutput();
+    die(); // stop the rest of the output, cause we don`t care :)
+} else {
+    $TEMPLATE_VARS = array(
+        'pageNotFound'  => false,
+        'login'         => false,
+        'register'      => false,
+        'userIsLogged'  => User::isLogged(),
+        'loggedUser'    => User::getLogged()
+    );
+}
 
 $TEMPLATE_VARS = array_merge($TEMPLATE_VARS, $controller->getOutput());
 

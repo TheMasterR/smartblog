@@ -1,3 +1,15 @@
+<!--SLIDER GOES HERE ABOVE THE ARTICLES-->
+<div id="slider">
+    <div id="slider-previous"><</div>
+    <div id="slider-pause-icon">||</div>
+    <div id="slider-next">></div>
+    <ul class="slides">
+
+    </ul>
+
+</div>
+<script type="text/javascript" src="/public/js/slider.js"></script>
+
 <?php foreach ($TEMPLATE_VARS['articles'] as $article) { ?>
 <article class="panel">
 

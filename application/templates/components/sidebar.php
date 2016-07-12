@@ -25,7 +25,7 @@
         }
     ?>
     <div class="panel labels">
-        <h5>Labels</h5>
+        <h5 id="labels">Labels</h5>
         <ul>
             <li><a href="#">business</a></li>
             <li><a href="#">galerry</a></li>
