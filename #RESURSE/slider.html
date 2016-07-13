@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script type="text/javascript" src="public/js/slider.js"></script>
+        <style type="text/css">
+            #slider {
+                width: 720px;
+                height: 400px;
+                overflow: hidden;
+            }
+
+            #slider .slides {
+                display: block;
+                width: 6000px;
+                height: 400px;
+                margin: 0;
+                padding: 0;
+            }
+
+            #slider .slide {
+                float: left;
+                list-style-type: none;
+                width: 720px;
+                height: 400px;
+            }
+
+            /* helper css, since we don't have images */
+            .slide1 {background: red;}
+            .slide2 {background: blue;}
+            .slide3 {background: green;}
+            .slide4 {background: purple;}
+            .slide5 {background: pink;}
+
+        </style>
+    </head>
+    <body>
+        <div id="sliderApp"></div>
+    </body>
+</html>
+
+
