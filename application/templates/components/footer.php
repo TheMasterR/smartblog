@@ -4,4 +4,4 @@
         All rights reserved. | Check this project on <a href="https://github.com/TheMasterR/smartblog">GitHUB.com/TheMasterR/smartblog</a>
     </div>
 </footer>
-<script type="text/javascript" src="/public/js/script_load_last.js"></script>
+<script type="text/javascript" src="public/js/script.js"></script>

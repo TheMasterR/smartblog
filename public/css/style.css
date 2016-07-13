@@ -809,18 +809,18 @@ footer a:hover {
     text-align: justify;
 }
 
-.delete-comment, edit-comment {
-    padding: 0;
-    margin: 0;
+.delete-comment, .edit-comment {
+    padding: 2px 8px 2px 8px;
+    margin-left: 5px;
     display: inline;
-}
-.delete-comment input[type=submit],
-.edit-comment input[type=submit]{
-    margin: 0;
-    display: inline;
-    height: auto;
+    text-align: center;
     float: right;
+    background-color: #4d90f0;
+    color: white;
+    cursor: pointer;
+    border-radius: 2px;
 }
+
 .comment-date {
     margin-left: 15px;
 }
@@ -835,12 +835,12 @@ footer a:hover {
 /*SLIDER*/
 
 #slider {
-    width: 758px;
+    max-width: 758px;
     height: 400px;
     overflow: hidden;
     margin-bottom: 40px;
+    position: relative;
 }
-
 #slider .slides {
     display: block;
     width: 99999px;
@@ -852,7 +852,7 @@ footer a:hover {
 #slider .slide {
     float: left;
     list-style-type: none;
-    width: 758px;
+    max-width: 758px;
     height: 400px;
 }
 #slider .slide img {
@@ -860,31 +860,35 @@ footer a:hover {
 }
 
 #slider-previous, #slider-next {
-    width: 120px;
-    height: 400px;
+    width: 80px;
+    height: 200px;
+    line-height: 200px;
+    margin-top: 100px;
     background-color: grey;
     opacity: 0.4;
     position: absolute;
     color: white;
     font-size: 60px;
     text-align: center;
-    padding-top: 160px;
     display: none;
     cursor: pointer;
 }
 #slider-next {
-    margin-left: 638px;
+    margin-left: 678px;
+}
+#slider-previous {
+    margin-left: 0px;
 }
 #slider-pause-icon {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
     border-radius: 4px;
     background-color: grey;
     color: white;
     opacity: 0.6;
     margin-top: 160px;
-    margin-left: 325px;
-    padding-top: 14px;
+    margin-left: 339px;
     position: absolute;
     text-align: center;
     font-size: 50px;

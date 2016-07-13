@@ -12,8 +12,8 @@ var slider = {
     interval : null,
     // animation setup
     myWith : 758,
-    animationSpeed : 1200,
-    pause : 3000,
+    animationSpeed : 1500,
+    pause : 4000,
     currentSlide : 1,
     isPaused : false
 };
@@ -67,19 +67,36 @@ slider.previousSlide = function() {
 };
 slider.onMouseEnter = function() {
     slider.pauseSlider();
+    slider.$slideNext.css('opacity', 0);
     slider.$slideNext.css('display', 'block');
+    slider.$slideNext.fadeTo(400, 0.4);
+
+    slider.$slidePrevious.css('opacity', 0);
     slider.$slidePrevious.css('display', 'block');
+    slider.$slidePrevious.fadeTo(400, 0.4);
+
+    slider.$slidePauseIcon.css('opacity', 0);
     slider.$slidePauseIcon.css('display', 'block');
+    slider.$slidePauseIcon.fadeTo(400, 0.4);
+
 };
 slider.onMouseLeave = function() {
     if(!slider.isPaused) {
         slider.startSlider();
-        slider.$slidePauseIcon.css('display', 'none');
-        slider.$slideNext.css('display', 'none');
-        slider.$slidePrevious.css('display', 'none');
+        slider.$slidePauseIcon.fadeTo(400, 0);
+        // slider.$slidePauseIcon.css('display', 'none');
+
+        slider.$slideNext.fadeTo(400, 0);
+        // slider.$slideNext.css('display', 'none');
+
+        slider.$slidePrevious.fadeTo(400, 0);
+        // slider.$slidePrevious.css('display', 'none');
     } else {
-        slider.$slideNext.css('display', 'none');
-        slider.$slidePrevious.css('display', 'none');
+        slider.$slideNext.fadeTo(400, 0);
+        // slider.$slideNext.css('display', 'none');
+
+        slider.$slidePrevious.fadeTo(400, 0);
+        // slider.$slidePrevious.css('display', 'none');
     }
 
 };
@@ -96,12 +113,12 @@ slider.onClickPause = function() {
 // EVENTS
 slider.$slider.on('mouseenter', slider.onMouseEnter)
               .on('mouseleave', slider.onMouseLeave);
-slider.$slidePauseIcon.on('mouseenter', function() { slider.$slidePauseIcon.css('opacity', '0.8') })
-                      .on('mouseleave', function() { slider.$slidePauseIcon.css('opacity', '0.4') });
-slider.$slideNext.on('mouseenter', function() { slider.$slideNext.css('opacity', '0.8') })
-                 .on('mouseleave', function() { slider.$slideNext.css('opacity', '0.4') });
-slider.$slidePrevious.on('mouseenter', function() { slider.$slidePrevious.css('opacity', '0.8') })
-                     .on('mouseleave', function() { slider.$slidePrevious.css('opacity', '0.4') });
+slider.$slidePauseIcon.on('mouseenter', function() { slider.$slidePauseIcon.fadeTo(300, 0.8) })
+                      .on('mouseleave', function() { slider.$slidePauseIcon.fadeTo(300, 0.4) });
+slider.$slideNext.on('mouseenter', function() { slider.$slideNext.fadeTo(300, 0.8) })
+                 .on('mouseleave', function() { slider.$slideNext.fadeTo(300, 0.4) });
+slider.$slidePrevious.on('mouseenter', function() { slider.$slidePrevious.fadeTo(300, 0.8) })
+                     .on('mouseleave', function() { slider.$slidePrevious.fadeTo(300, 0.4) });
 slider.$slideNext.on('click', slider.nextSlide);
 slider.$slidePrevious.on('click', slider.previousSlide);
 slider.$slidePauseIcon.on('click', slider.onClickPause);

@@ -54,33 +54,17 @@
     <!--END COMMENT CONTAINER-->
 
 <!--ADD NEW COMMENT FORM-->
-<?php
-    if ($TEMPLATE_VARS['userIsLogged']) {
-?>
-     <form id="add-comment" class="new-comment">
-        <input type="hidden" name="authorName" value="<?= $TEMPLATE_VARS['user']->name ?>"/>
-        <input type="hidden" name="authorThumbSrc" value="./public/img/thumb.png"/>
-        <input type="hidden" name="authorPage" value="/public/1"/>
+    <form id="add-comment" class="new-comment">
+        <input type="hidden" name="userName" value="<?= $TEMPLATE_VARS['user']->name ?>"/>
+        <input type="hidden" name="userId" value="<?= $TEMPLATE_VARS['user']->id ?>"/>
+        <input type="hidden" name="userImage" value="./public/img/thumb.png"/>
+        <input type="hidden" name="userPage" value="/public/1"/>
         <input type="hidden" name="articleId" value="<?= $TEMPLATE_VARS['article']->id ?>"/>
+        <textarea name="comment_content" class="add-comment"></textarea>
 
-        <textarea name="body" class="add-comment"></textarea>
-
-        <input type="submit" value="Add comment"/>
+        <input id= "add-comment-button" type="submit" value="Add comment"/>
     </form>
 
-    <!--<div id="test-propagation">-->
-    <!--    <div>-->
-    <!--        <p>-->
-    <!--            <a href="#" id="my-anchor">Click me!</a>-->
-    <!--        </p>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-<?php
-   } else {
-        echo '<br><br><p>You have to be <a href="/index.php?page=auth&action=login&aid='.$TEMPLATE_VARS['article']->id.'"><b>logged in</b></a> to place a comment.</p>';
-    }
-?>
 <!--ADD NEW COMMENT END OF FORM-->
 </div>
 <!--END OF COMMENTS SECTION-->

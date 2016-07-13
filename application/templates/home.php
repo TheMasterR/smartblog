@@ -3,10 +3,7 @@
     <div id="slider-previous">&#x23ea;</div>
     <div id="slider-pause-icon">&#10073;&#10073;</div>
     <div id="slider-next">&#x23e9;</div>
-    <ul class="slides">
-
-    </ul>
-
+    <ul class="slides"></ul>
 </div>
 <script type="text/javascript" src="/public/js/slider.js"></script>
 

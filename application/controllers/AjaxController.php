@@ -1,7 +1,5 @@
 <?php
-
 class AjaxController extends BaseController {
-
     public function getDate() {
         $now = new DateTime('now');
         $data = new stdclass();
@@ -9,101 +7,101 @@ class AjaxController extends BaseController {
         echo json_encode($now);
         echo $now->format('c');
     }
-
-    public function getArticles() {
-        echo 'My test string';
+    public function isLogged() {
+        echo User::isLogged();
     }
+    public function getComments() {
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $comments = Comment::getAll(' WHERE article_id='.$_GET['id'].' ORDER BY date_published ASC');
 
-  public function getComments() {
-        $comments = Comment::getAll(' WHERE article_id=1 ORDER BY date_published ASC');
+            $data = array();
+            foreach ($comments as $key => $comment) {
+                $data[$key]['id'] = $comment['id'];
+                //$data[$key]['userId'] = $comment['user_id'];
 
-        $data = array();
-        foreach ($comments as $key => $comment) {
-            $data[$key]['id'] = $comment['id'];
-            //$data[$key]['userId'] = $comment['user_id'];
-            $user = new User($comment['user_id']);
-            $data[$key]['userName'] = $user->name;
-            $data[$key]['userImage'] = './public/img/thumb.png';
-            $data[$key]['comment_content'] = $comment['comment_content'];
-            $data[$key]['date_published'] = $comment['date_published'];
+                if($comment['user_id'] == 0) {
+                    $data[$key]['userName'] = 'Anonymous';
+                    $data[$key]['userId'] = -1;
+                } else {
+                    $user = new User($comment['user_id']);
+                    $data[$key]['userName'] = $user->name;
+                    $data[$key]['userId'] = $user->id;
+                }
+                $data[$key]['userImage'] = './public/img/thumb.png';
+                $data[$key]['comment_content'] = $comment['comment_content'];
+                $data[$key]['date_published'] = $comment['date_published'];
+            }
+
+            echo json_encode($data, JSON_NUMERIC_CHECK);
         }
-
-        echo json_encode($data, JSON_NUMERIC_CHECK);
     }
-
-    // public function getComments() {
-    //     $id = htmlspecialchars($this->params['id']);
-    //     $comments_arr = Comment::getAll("WHERE article_id='$id'");
-
-    //     //adding username,userimage
-    //     foreach($comments_arr as $key=>$comment) {
-    //         //$user_obj will hold the record data for user_id from comment arary
-    //         if ($comment['user_id'] !=0 ){
-    //             $user_obj = new User($comment['user_id']);
-    //             $comments_arr[$key]['userName'] = $user_obj->name;
-    //             $comments_arr[$key]['userImage'] = $user_obj->picture;
-    //         } else {
-    //             $comments_arr[$key]['userName'] = 'Anonim';
-    //             $comments_arr[$key]['userImage'] = '/public/img/default_avatar.jpg';
-    //         }
-
-    //     }
-
-
-    //     echo $this->output = json_encode($comments_arr);
-    // }
-
-    // public function getComments() {
-    //     $comments = Comment::getAll(' WHERE article_id=1 ORDER BY date_published ASC');
-
-    //     $data = array();
-    //     foreach ($comments as $key => $comment) {
-    //         $data[$key]['id'] = $comment['id'];
-    //         $data[$key]['articleId'] = $comment['article_id'];
-    //         $data[$key]['userId'] = $comment['user_id'];
-    //         $user = new User($comment['user_id']);
-    //         $data[$key]['userName'] = $user->name;
-    //         $data[$key]['userImage'] = './public/img/thumb.png';
-    //         $data[$key]['commentContent'] = $comment['comment_content'];
-    //         $data[$key]['datePosted'] = $comment['date_published'];
-    //     }
-
-    //     echo json_encode($data, JSON_NUMERIC_CHECK);
-    // }
-
     public function saveComment() {
+        // TO DO:
 
-        $commentBody = isset($_POST['commentBody']) ? $_POST['commentBody'] : null;
-        $articleId = isset($_POST['articleId']) ? $_POST['articleId'] : null;
-
+        $data = $_POST;
+        $getTheId;
+        $data += ['date_published' => date('Y-m-d H:i:s')];
 
         $loggedUser = User::getLogged();
 
-        //$comment = new Comment();
-        //$comment->date_despre_user...
+        $comment = new Comment();
 
-        sleep(2);
+        $comment->id = isset ($_POST['id']) ? intval($_POST['id']) : null;
+        $comment->comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : null;
+        $comment->article_id = isset($_POST['articleId']) ? intval($_POST['articleId']) : null;
+        $comment->date_published = date('Y-m-d H:i:s');
 
-        echo json_encode(array('success'=>true, 'commentId'=>12));
-    }
+        //if no logged user, set id=0, for anonimous users
+        $comment->user_id = isset($loggedUser->id) ? $loggedUser->id : 0;
 
-    public function deleteComment() {
-
-        $commentId = isset($_POST['commentId']) ? $_POST['commentId'] : null;
-
-        if (!$commentId) {
+        if ($comment->comment_content !== '' && $comment->article_id !== null){
+            $getTheId = $comment->save();
+            $data += ['id' => $getTheId];
+        } else  {
             echo json_encode(array('success'=>false));
+            return false;
         }
 
-        // intarizere intentionata!!
-        sleep(2);
 
-        //$comment = new Comment($commentId);
-        //$comment->delete();
+
+        if ($loggedUser) {
+            echo json_encode($data);
+        } else {
+            $data['userName'] = 'Anonymous';
+            $data['userImage'] = './public/img/thumb.png';
+            echo json_encode($data);
+        }
+    }
+    public function updateComment() {
+        // TO DO:
+
+        $data = $_POST;
+        $data += ['date_published' => date('Y-m-d H:i:s')];
+
+        $loggedUser = User::getLogged();
+
+        $comment = new Comment(intval($_POST['id']));
+        $comment->comment_content = htmlspecialchars($_POST['comment_content']);
+        $comment->date_published = date('Y-m-d H:i:s');
+
+        $comment->save();
 
         echo json_encode(array('success'=>true));
+        // echo json_encode($data);
     }
+    public function deleteComment() {
+        // TO DO:
+        // make sure to check if the logged user is allowed to delete the comment
+        if (isset($_GET['id'])) {
+            $commentId = intval($_GET['id']);
 
+            $comment = new Comment($commentId);
+            $comment->remove();
+            echo json_encode(array('success'=>true));
+        } else {
+            echo json_encode(array('success'=>false));
+        }
+    }
     public function upload() {
         if (!User::isLogged()){
             deg('you are not logged in, so you can\'t upload!');
@@ -130,7 +128,6 @@ class AjaxController extends BaseController {
           echo $output;
         }
     }
-
     public function getGallery() {
         // set the gallery directory
         $gallery_dir = 'public/uploads/gallery/';
@@ -155,5 +152,4 @@ class AjaxController extends BaseController {
         echo json_encode($random_images);
 
     }
-
 }

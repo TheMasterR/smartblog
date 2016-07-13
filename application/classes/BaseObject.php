@@ -63,7 +63,7 @@ class BaseObject implements BaseObjectInterface {
             $this->update();
         } else
         {
-            $this->insert();
+            return $this->insert();
         }
     }
 
@@ -109,6 +109,7 @@ class BaseObject implements BaseObjectInterface {
         $query = substr($query,0,-1); // stergem virgula finala din query
         $db->query($query);
         $this->id = $db->insertId();
+        return $db->insertId();
     }
 
     protected static function getDBConnection()
