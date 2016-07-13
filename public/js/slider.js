@@ -86,14 +86,22 @@ slider.onMouseLeave = function() {
 slider.onClickPause = function() {
     if (slider.isPaused === true) {
         slider.isPaused = false;
+        slider.$slidePauseIcon.html('&#10073;&#10073;');
     } else {
         slider.isPaused = true;
+        slider.$slidePauseIcon.html('&#9654');
     }
 };
 
 // EVENTS
 slider.$slider.on('mouseenter', slider.onMouseEnter)
               .on('mouseleave', slider.onMouseLeave);
+slider.$slidePauseIcon.on('mouseenter', function() { slider.$slidePauseIcon.css('opacity', '0.8') })
+                      .on('mouseleave', function() { slider.$slidePauseIcon.css('opacity', '0.4') });
+slider.$slideNext.on('mouseenter', function() { slider.$slideNext.css('opacity', '0.8') })
+                 .on('mouseleave', function() { slider.$slideNext.css('opacity', '0.4') });
+slider.$slidePrevious.on('mouseenter', function() { slider.$slidePrevious.css('opacity', '0.8') })
+                     .on('mouseleave', function() { slider.$slidePrevious.css('opacity', '0.4') });
 slider.$slideNext.on('click', slider.nextSlide);
 slider.$slidePrevious.on('click', slider.previousSlide);
 slider.$slidePauseIcon.on('click', slider.onClickPause);

@@ -864,13 +864,13 @@ footer a:hover {
     height: 400px;
     background-color: grey;
     opacity: 0.4;
-    opacity: 10%;
     position: absolute;
     color: white;
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
-    padding-top: 140px;
+    padding-top: 160px;
     display: none;
+    cursor: pointer;
 }
 #slider-next {
     margin-left: 638px;
@@ -882,12 +882,13 @@ footer a:hover {
     background-color: grey;
     color: white;
     opacity: 0.6;
-    margin-top: 150px;
+    margin-top: 160px;
     margin-left: 325px;
-    padding-top: 10px;
+    padding-top: 14px;
     position: absolute;
     text-align: center;
     font-size: 50px;
     font-weight: bold;
     display: none;
+    cursor: pointer;
 }

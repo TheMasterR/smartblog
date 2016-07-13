@@ -1,8 +1,8 @@
 <!--SLIDER GOES HERE ABOVE THE ARTICLES-->
 <div id="slider">
-    <div id="slider-previous"><</div>
-    <div id="slider-pause-icon">||</div>
-    <div id="slider-next">></div>
+    <div id="slider-previous">&#x23ea;</div>
+    <div id="slider-pause-icon">&#10073;&#10073;</div>
+    <div id="slider-next">&#x23e9;</div>
     <ul class="slides">
 
     </ul>
